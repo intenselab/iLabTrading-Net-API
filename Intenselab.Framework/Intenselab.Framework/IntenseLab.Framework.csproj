@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB51D579-199C-4C3B-8A7C-5687ED26BD56}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IntenseLab.Framework</RootNamespace>
+    <AssemblyName>IntenseLab.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Release\IntenseLab.Framework.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MoreLinq.Portable, Version=1.4.18916.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MoreLinq.Portable.1.4.0\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\MoreLinq.Portable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\net45\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.24.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Tpl.Dataflow.4.5.24\lib\portable-net45+win8+wpa81\System.Threading.Tasks.Dataflow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataClients\ExecutionClient.cs" />
+    <Compile Include="DataClients\HistoricalDataClient.cs" />
+    <Compile Include="DataClients\MarketDataClient.cs" />
+    <Compile Include="DataListeners\AccountDataListener.cs" />
+    <Compile Include="DataListeners\BaseDataListener.cs" />
+    <Compile Include="DataListeners\EventCaller.cs" />
+    <Compile Include="DataListeners\ExecutionDataListener.cs" />
+    <Compile Include="DataListeners\HistoricalDataListener.cs" />
+    <Compile Include="DataListeners\MarketDataListener.cs" />
+    <Compile Include="DataPacket.cs" />
+    <Compile Include="IntenseLabSession.cs" />
+    <Compile Include="Messages\Authorization\AuthorizationRequest.cs" />
+    <Compile Include="Messages\Authorization\AuthorizationSuccessResponse.cs" />
+    <Compile Include="Messages\Authorization\AuthorizationFailedResponse.cs" />
+    <Compile Include="Messages\BaseData\MessageWithId.cs" />
+    <Compile Include="Messages\Enums\Execution\CloseTradingAction.cs" />
+    <Compile Include="Messages\Enums\Execution\CommodityPositionStatus.cs" />
+    <Compile Include="Messages\Enums\Execution\OpenUpdateReason.cs" />
+    <Compile Include="Messages\Enums\Execution\OrderSide.cs" />
+    <Compile Include="Messages\Enums\Execution\OrderType.cs" />
+    <Compile Include="Messages\Enums\Execution\TimeInForce.cs" />
+    <Compile Include="Messages\Enums\FailedAuthorizationReason.cs" />
+    <Compile Include="Messages\Enums\Historical\HistoricalTimeType.cs" />
+    <Compile Include="Messages\Enums\Historical\HistoryRequestType.cs" />
+    <Compile Include="Messages\Enums\Historical\HistoryResponseCode.cs" />
+    <Compile Include="Messages\Enums\Manager\AccountInfoUpdateType.cs" />
+    <Compile Include="Messages\Enums\Manager\AccountType.cs" />
+    <Compile Include="Messages\Enums\Manager\AdminRequestType.cs" />
+    <Compile Include="Messages\Enums\Manager\ExecutionHistoryRequestType.cs" />
+    <Compile Include="Messages\Enums\Market\Level2Side.cs" />
+    <Compile Include="Messages\Enums\Market\MarketDataType.cs" />
+    <Compile Include="Messages\Enums\Market\QuoteUpdateReason.cs" />
+    <Compile Include="Messages\Enums\Market\SubscriptionAction.cs" />
+    <Compile Include="Messages\Enums\NotificationCode.cs" />
+    <Compile Include="Messages\Enums\RequestResultType.cs" />
+    <Compile Include="Messages\Enums\ServerState.cs" />
+    <Compile Include="Messages\ExecutionData\Alert.cs" />
+    <Compile Include="Messages\ExecutionData\BaseOrder.cs" />
+    <Compile Include="Messages\ExecutionData\BasePosition.cs" />
+    <Compile Include="Messages\ExecutionData\BasePositionOpenUpdate.cs" />
+    <Compile Include="Messages\ExecutionData\BaseTrade.cs" />
+    <Compile Include="Messages\ExecutionData\Canceled.cs" />
+    <Compile Include="Messages\ExecutionData\Cancelling.cs" />
+    <Compile Include="Messages\ExecutionData\CancelOrder.cs" />
+    <Compile Include="Messages\ExecutionData\CancelReject.cs" />
+    <Compile Include="Messages\ExecutionData\CommodityPosition.cs" />
+    <Compile Include="Messages\ExecutionData\CommodityPositionOpenUpdate.cs" />
+    <Compile Include="Messages\ExecutionData\CommodityTrade.cs" />
+    <Compile Include="Messages\ExecutionData\DeliveryConfirmation.cs" />
+    <Compile Include="Messages\ExecutionData\ExecutionDeliveryMessage.cs" />
+    <Compile Include="Messages\ExecutionData\DeliveryOrder.cs" />
+    <Compile Include="Messages\ExecutionData\DeliveryReject.cs" />
+    <Compile Include="Messages\ExecutionData\DeliverySending.cs" />
+    <Compile Include="Messages\ExecutionData\ExecutionCancelMessage.cs" />
+    <Compile Include="Messages\ExecutionData\NewOrder.cs" />
+    <Compile Include="Messages\ExecutionData\OrderError.cs" />
+    <Compile Include="Messages\ExecutionData\Pending.cs" />
+    <Compile Include="Messages\ExecutionData\Position.cs" />
+    <Compile Include="Messages\ExecutionData\PositionOpenUpdate.cs" />
+    <Compile Include="Messages\ExecutionData\Reject.cs" />
+    <Compile Include="Messages\ExecutionData\Sending.cs" />
+    <Compile Include="Messages\ExecutionData\Trade.cs" />
+    <Compile Include="Messages\ExecutionData\TradingData.cs" />
+    <Compile Include="Messages\ExecutionData\UserExecutionData.cs" />
+    <Compile Include="Messages\ExecutorAccountConnectionStatus.cs" />
+    <Compile Include="Messages\HistoricalData\Bar.cs" />
+    <Compile Include="Messages\HistoricalData\HistoricalDataRequest.cs" />
+    <Compile Include="Messages\HistoricalData\HistoricalDataResponse.cs" />
+    <Compile Include="Messages\HistoricalData\Tick.cs" />
+    <Compile Include="Messages\Manager\AccountInfo.cs" />
+    <Compile Include="Messages\Manager\AccountInfoUpdate.cs" />
+    <Compile Include="Messages\Manager\AccountOpenUpdate.cs" />
+    <Compile Include="Messages\Manager\MarketCommission.cs" />
+    <Compile Include="Messages\Manager\RiskInfo.cs" />
+    <Compile Include="Messages\Manager\TradingStatistic.cs" />
+    <Compile Include="Messages\Manager\UserAccountLinkInfo.cs" />
+    <Compile Include="Messages\MarketData\Level2.cs" />
+    <Compile Include="Messages\MarketData\Level2Cache.cs" />
+    <Compile Include="Messages\MarketData\MarketTime.cs" />
+    <Compile Include="Messages\MarketData\Print.cs" />
+    <Compile Include="Messages\MarketData\Quote.cs" />
+    <Compile Include="Messages\MarketData\TodayInfo.cs" />
+    <Compile Include="Messages\RequestAndResults\AccountInfoesResponse.cs" />
+    <Compile Include="Messages\RequestAndResults\RiskInfoesResponse.cs" />
+    <Compile Include="Messages\RequestAndResults\UserAccountLinksResponse.cs" />
+    <Compile Include="Messages\RequestAndResults\LinkedAccountsResponse.cs" />
+    <Compile Include="Messages\RequestAndResults\Admin\AccountInfoUpdateRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Admin\AdminRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Admin\UserAccountLinkInfoUpdateRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Admin\UserInfoUpdateRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Admin\UserKickRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Execution\CloseTradingRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Execution\ExecutionHistory.cs" />
+    <Compile Include="Messages\RequestAndResults\Execution\ExecutionHistoryRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Execution\ExecutionHistoryResponse.cs" />
+    <Compile Include="Messages\RequestAndResults\LinkedAccountsRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\Market\MarketDataRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\UserCreationRequest.cs" />
+    <Compile Include="Messages\RequestAndResults\UserInfoesResponse.cs" />
+    <Compile Include="Messages\RequestResult.cs" />
+    <Compile Include="Messages\RoutesConfiguration.cs" />
+    <Compile Include="Messages\ServerStateMessage.cs" />
+    <Compile Include="Messages\StockSupportedRoutes.cs" />
+    <Compile Include="Messages\SupportedRoutesRequest.cs" />
+    <Compile Include="Messages\SupportedRoutesResponse.cs" />
+    <Compile Include="Messages\SystemNotification.cs" />
+    <Compile Include="Messages\UserData\DataAccess.cs" />
+    <Compile Include="Messages\UserData\ConnectionSettings.cs" />
+    <Compile Include="Messages\UserData\SymbolLimitation.cs" />
+    <Compile Include="Messages\UserData\UserCredentials.cs" />
+    <Compile Include="Messages\UserData\UserInfo.cs" />
+    <Compile Include="Messages\UserData\UserPermissions.cs" />
+    <Compile Include="Messages\UserData\WindowAccess.cs" />
+    <Compile Include="QueuesForClient\BaseQueueWorker.cs" />
+    <Compile Include="QueuesForClient\IDataClientWithQueue.cs" />
+    <Compile Include="QueuesForClient\ReceiveQueueDataWorker.cs" />
+    <Compile Include="QueuesForClient\SenderQueueFactory.cs" />
+    <Compile Include="QueuesForClient\SendQueueDataWorker.cs" />
+    <Compile Include="TradingClientWithQueue.cs" />
+    <Compile Include="DataClients\BaseDataClient.cs" />
+    <Compile Include="Messages\BaseData\ClientData.cs" />
+    <Compile Include="Messages\BaseData\ClientTerminatedData.cs" />
+    <Compile Include="Messages\BaseData\ExecutionData.cs" />
+    <Compile Include="Messages\BaseData\HistoricalData.cs" />
+    <Compile Include="Messages\BaseData\MarketData.cs" />
+    <Compile Include="Messages\Enums\ClientTerminationType.cs" />
+    <Compile Include="Messages\Enums\DataPacketType.cs" />
+    <Compile Include="Messages\Enums\TradingChannel.cs" />
+    <Compile Include="Messages\TerminateClientMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IntenseLab.NetworkCommunication\IntenseLab.NetworkCommunication.csproj">
+      <Project>{386AF7E5-DCFE-4905-9C96-847FC5449F5D}</Project>
+      <Name>IntenseLab.NetworkCommunication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IntenseLab.Shared\IntenseLab.Shared.csproj">
+      <Project>{E6A5C111-0BD3-467E-A0BD-63BB43FD15F1}</Project>
+      <Name>IntenseLab.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
