@@ -1,0 +1,6 @@
+Before running example, please perform next actions.
+
+1. Run Visual Studio
+2. Go to Tools -> NuGet Package Manager -> Package Manager Settings -> Package Sources
+3. Add new package (!DON'T edit any of existed) source with "Source" field = http://data.intenselab.net:8443/nuget
+("Name" field can be any you want).
